@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://d26mg1iwn83px"]
+
+[ext_resource type="PackedScene" uid="uid://tv438vnkxhbp" path="res://Scenes/player.tscn" id="1_468g6"]
+[ext_resource type="Texture2D" uid="uid://ojvj17n2shsn" path="res://Assets/Tiles.png" id="1_goahb"]
+[ext_resource type="PackedScene" uid="uid://c4ka1eklug6r6" path="res://Scenes/highway_lane.tscn" id="3_3u331"]
+[ext_resource type="Texture2D" uid="uid://egyagnh8uhyb" path="res://Assets/Enem SnowBall.png" id="4_hhdf4"]
+[ext_resource type="PackedScene" uid="uid://bxwsa80ljfwhb" path="res://Scenes/water.tscn" id="5_yplqh"]
+[ext_resource type="Script" path="res://Scripts/highway_lanes.gd" id="6_8o2aa"]
+[ext_resource type="PackedScene" uid="uid://dtanfl5n4tcce" path="res://Scenes/water_lane.tscn" id="6_qmb3k"]
+[ext_resource type="Script" path="res://Scripts/GameStateManager.gd" id="9_iyect"]
+[ext_resource type="PackedScene" uid="uid://b850o32j3rujw" path="res://Scenes/home_slot.tscn" id="10_r6dgg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ai0na"]
+texture = ExtResource("1_goahb")
+texture_region_size = Vector2i(108, 108)
+0:7/0 = 0
+0:6/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+0:1/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hfwg2"]
+tile_size = Vector2i(108, 108)
+sources/1 = SubResource("TileSetAtlasSource_ai0na")
+
+[node name="Main" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-27, 0)
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_hfwg2")
+format = 2
+layer_0/tile_data = PackedInt32Array(196603, 1, 1, 196604, 1, 1, 196605, 1, 1, 196606, 1, 1, 196607, 1, 1, 131072, 1, 1, 131073, 1, 1, 131074, 1, 1, 131075, 1, 1, 131076, 1, 1, 131067, 1, 2, 65531, 1, 1, 65532, 1, 1, 65533, 1, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 4, 1, 1, -65541, 1, 4, -65540, 1, 4, -65539, 1, 4, -65538, 1, 4, -65537, 1, 4, -131072, 1, 4, -131071, 1, 4, -131070, 1, 4, -131069, 1, 4, -131068, 1, 4, -131076, 1, 0, -131074, 1, 0, -196608, 1, 0, -196606, 1, 0, -196604, 1, 0, -131067, 1, 4, 5, 1, 1, 131077, 1, 1, 458747, 1, 7, 458748, 1, 7, 458749, 1, 7, 458750, 1, 7, 458751, 1, 7, 393216, 1, 1, 393217, 1, 7, 393218, 1, 7, 393219, 1, 7, 393220, 1, 7, 393221, 1, 7, -393221, 1, 4, -393220, 1, 7, -393219, 1, 4, -393218, 1, 7, -393217, 1, 4, -458752, 1, 7, -458751, 1, 4, -458750, 1, 7, -458749, 1, 4, -458748, 1, 7, -458747, 1, 4, -327685, 1, 0, -327684, 1, 0, -327683, 1, 0, -262147, 1, 0, -262146, 1, 0, -262145, 1, 0, -327680, 1, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -327675, 1, 0, -393211, 1, 0, -393212, 1, 0, -262149, 1, 0, -196613, 1, 0, -131077, 1, 0, -262148, 1, 0, -196612, 1, 0, -196611, 1, 0, -131075, 1, 0, -327682, 1, 0, -196610, 1, 0, -327681, 1, 0, -196609, 1, 0, -131073, 1, 0, -393216, 1, 0, -393215, 1, 0, -327679, 1, 0, -196607, 1, 0, -393214, 1, 0, -327678, 1, 0, -393213, 1, 0, -327677, 1, 0, -196605, 1, 0, -327676, 1, 0, -196603, 1, 0, -5, 1, 1, -4, 1, 1, -3, 1, 1, -2, 1, 1, -1, 1, 1, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -65533, 1, 1, -65532, 1, 1, -65531, 1, 1, 131068, 1, 2, 131069, 1, 2, 131070, 1, 2, 131071, 1, 2, 65536, 1, 2, 65537, 1, 2, 65538, 1, 2, 65539, 1, 2, 65540, 1, 2, 65541, 1, 2, 262139, 1, 7, 327675, 1, 7, 393211, 1, 7, 262140, 1, 7, 327676, 1, 7, 393212, 1, 7, 262141, 1, 7, 327677, 1, 7, 393213, 1, 7, 262142, 1, 7, 327678, 1, 7, 393214, 1, 7, 262143, 1, 7, 327679, 1, 7, 393215, 1, 7, 196608, 1, 7, 262144, 1, 7, 327680, 1, 7, 196609, 1, 7, 262145, 1, 7, 327681, 1, 7, 196610, 1, 7, 262146, 1, 7, 327682, 1, 7, 196611, 1, 7, 262147, 1, 7, 327683, 1, 7, 196612, 1, 7, 262148, 1, 7, 327684, 1, 7, 196613, 1, 7, 262149, 1, 7, 327685, 1, 7, -458757, 1, 7, -458756, 1, 7, -458755, 1, 7, -458754, 1, 7, -458753, 1, 7, -524288, 1, 7, -524287, 1, 7, -524286, 1, 7, -524285, 1, 7, -524284, 1, 7, -524283, 1, 7, 524283, 1, 7, 524284, 1, 7, 524285, 1, 7, 524286, 1, 7, 524287, 1, 7, 458752, 1, 7, 458753, 1, 7, 458754, 1, 7, 458755, 1, 7, 458756, 1, 7, 458757, 1, 7)
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2(-27, 0)
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_hfwg2")
+format = 2
+layer_0/tile_data = PackedInt32Array(327677, 1, 6, 327678, 1, 6, 327679, 1, 6, 262145, 1, 6, 262146, 1, 6, 262149, 1, 6, 327675, 1, 6, 262148, 1, 6, 393212, 1, 4, 458751, 1, 4, 262144, 1, 4, 196611, 1, 4, 327684, 1, 4, 393218, 1, 4, 524285, 1, 4, 262141, 1, 4, 262142, 1, 4, -327685, 1, 5, -327684, 1, 5, -327683, 1, 5, -327682, 1, 5, -327681, 1, 5, -393216, 1, 5, -393215, 1, 5, -393214, 1, 5, -393213, 1, 5, -393212, 1, 5, -393211, 1, 5, -5, 1, 5, -4, 1, 5, -3, 1, 5, -2, 1, 5, -1, 1, 5, -65536, 1, 5, -65535, 1, 5, -65534, 1, 5, -65533, 1, 5, -65532, 1, 5, -65531, 1, 5)
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_468g6")]
+position = Vector2(0, 352)
+scale = Vector2(0.5, 0.5)
+camera = NodePath("../Camera2D")
+
+[node name="HighwayLanes" type="Node" parent="."]
+
+[node name="HighwayLane" parent="HighwayLanes" instance=ExtResource("3_3u331")]
+position = Vector2(0, 27)
+vehicle_texture = ExtResource("4_hhdf4")
+distance_between_vehicles = 57
+
+[node name="Water" parent="." instance=ExtResource("5_yplqh")]
+position = Vector2(4, -230)
+
+[node name="WaterLanes" type="Node" parent="."]
+script = ExtResource("6_8o2aa")
+
+[node name="WaterLane" parent="WaterLanes" instance=ExtResource("6_qmb3k")]
+position = Vector2(0, -135)
+logs_length = [2, 3, 4]
+
+[node name="GameStateManager" type="Node" parent="."]
+script = ExtResource("9_iyect")
+
+[node name="HomeSlots" type="Node" parent="."]
+
+[node name="HomeSlot1" parent="HomeSlots" instance=ExtResource("10_r6dgg")]
+position = Vector2(-216, -354)
+scale = Vector2(0.5, 0.5)
+
+[node name="HomeSlot2" parent="HomeSlots" instance=ExtResource("10_r6dgg")]
+position = Vector2(-108, -351)
+scale = Vector2(0.5, 0.5)
+
+[node name="HomeSlot3" parent="HomeSlots" instance=ExtResource("10_r6dgg")]
+position = Vector2(0, -351)
+scale = Vector2(0.5, 0.5)
+
+[node name="HomeSlot4" parent="HomeSlots" instance=ExtResource("10_r6dgg")]
+position = Vector2(108, -351)
+scale = Vector2(0.5, 0.5)
+
+[node name="HomeSlot5" parent="HomeSlots" instance=ExtResource("10_r6dgg")]
+position = Vector2(216, -351)
+scale = Vector2(0.5, 0.5)

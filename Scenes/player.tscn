@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://tv438vnkxhbp"]
+
+[ext_resource type="Texture2D" uid="uid://bm57cfy86tbf8" path="res://Assets/Chicken 1.png" id="1_42si6"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ok54d"]
+[ext_resource type="Texture2D" uid="uid://bxu7mksad16vw" path="res://Assets/Chicken Jump.png" id="3_4qa07"]
+[ext_resource type="Texture2D" uid="uid://oa3kgerf5ku1" path="res://Assets/Chicken 3.png" id="4_pb6fy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0s2b"]
+radius = 30.0666
+
+[sub_resource type="Animation" id="Animation_yhcmt"]
+resource_name = "Leap"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_4qa07"), ExtResource("4_pb6fy"), ExtResource("1_42si6"), ExtResource("1_42si6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4isuu"]
+_data = {
+"Leap": SubResource("Animation_yhcmt")
+}
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_ok54d")
+lifes = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_42si6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_r0s2b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4isuu")
+}
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

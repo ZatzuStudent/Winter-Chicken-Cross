@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bclc6sw8exmer"]
+
+[ext_resource type="Texture2D" uid="uid://c16he586hvqtj" path="res://Assets/Log 2 mid.png" id="1_ycccr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d04f3"]
+size = Vector2(108, 89)
+
+[node name="LogMiddle" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ycccr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_d04f3")

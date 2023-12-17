@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtanfl5n4tcce"]
+
+[ext_resource type="Script" path="res://Scripts/water_lane.gd" id="1_u50ef"]
+
+[node name="WaterLane" type="Node2D"]
+script = ExtResource("1_u50ef")
