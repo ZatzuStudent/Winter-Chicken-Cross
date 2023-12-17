@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d26mg1iwn83px"]
+[gd_scene load_steps=14 format=3 uid="uid://d26mg1iwn83px"]
 
 [ext_resource type="PackedScene" uid="uid://tv438vnkxhbp" path="res://Scenes/player.tscn" id="1_468g6"]
 [ext_resource type="Texture2D" uid="uid://ojvj17n2shsn" path="res://Assets/Tiles.png" id="1_goahb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://egyagnh8uhyb" path="res://Assets/Enem SnowBall.png" id="4_hhdf4"]
 [ext_resource type="PackedScene" uid="uid://bxwsa80ljfwhb" path="res://Scenes/water.tscn" id="5_yplqh"]
 [ext_resource type="Script" path="res://Scripts/highway_lanes.gd" id="6_8o2aa"]
+[ext_resource type="PackedScene" uid="uid://dtanfl5n4tcce" path="res://Scenes/water_lane.tscn" id="8_24f72"]
 [ext_resource type="Script" path="res://Scripts/HomeSlots.gd" id="9_1j8xn"]
 [ext_resource type="Script" path="res://Scripts/GameStateManager.gd" id="9_iyect"]
 [ext_resource type="PackedScene" uid="uid://b850o32j3rujw" path="res://Scenes/home_slot.tscn" id="10_r6dgg"]
@@ -66,6 +67,8 @@ distance_between_vehicles = 57
 
 [node name="WaterLanes" type="Node" parent="."]
 script = ExtResource("6_8o2aa")
+
+[node name="WaterLane" parent="WaterLanes" instance=ExtResource("8_24f72")]
 
 [node name="GameStateManager" type="Node" parent="."]
 script = ExtResource("9_iyect")
